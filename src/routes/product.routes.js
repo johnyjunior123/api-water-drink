@@ -5,8 +5,9 @@ import { JWTAuth } from "../middleware/jwt.auth.js";
 export const productRoutes = Router();
 
 productRoutes.post("/product", JWTAuth, async (req, res) => {
+  console.log("alo");
   const productService = new ProductService();
-  const newProduct = await productService.createProduct(req.body);
+  const newProduct = await productService.createProduct(req.body, req.user.id);
   res.status(200).json({ ...newProduct });
 });
 
