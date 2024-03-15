@@ -1,0 +1,20 @@
+import express, { json } from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import db from "./src/db/database.js";
+import { userRoutes } from "./src/routes/user.routes.js";
+import { productRoutes } from "./src/routes/product.routes.js";
+import { authRoutes } from "./src/routes/auth.routes.js";
+import { enterpriseRoutes } from "./src/routes/enterprise.routes.js";
+import { orderRoutes } from "./src/routes/order.routes.js";
+dotenv.config();
+
+const app = express();
+app.use(json());
+app.use(cors());
+app.use(userRoutes);
+app.use(productRoutes);
+app.use(authRoutes);
+app.use(enterpriseRoutes);
+app.use(orderRoutes);
+app.listen(3000, () => console.log("listen in 3001"));
