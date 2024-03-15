@@ -13,7 +13,7 @@ pool.on("connect", () => {
 
 const sqlFilePath = "src/db/migrations/init.sql";
 const sqlQuery = fs.readFileSync(sqlFilePath, "utf8");
-// query(sqlQuery);
+// pool.query(sqlQuery);
 console.log("created tables");
 
 export default function query(text, params) {

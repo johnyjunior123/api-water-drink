@@ -14,7 +14,7 @@ authRoutes.post("/login", async (req, res) => {
     const token = jwt.sign({ ...user }, process.env.SECRET, {
       expiresIn: "1d",
     });
-    return res.json({ user: { ...user, password: undefined }, token });
+    return res.json({ ...user, password: undefined, token });
   }
   return res.status(400).json("email or password incorrect");
 });
